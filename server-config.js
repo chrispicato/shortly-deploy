@@ -14,7 +14,6 @@ var app = express();
 
 app.use(function(req, res, next) {
   req.db = db;
-  console.log(db);
   next();
 });
 
