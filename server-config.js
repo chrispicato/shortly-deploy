@@ -6,7 +6,7 @@ var session = require('express-session');
 var util = require('./lib/utility');
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost:27017');
-var db = require('./app/mongo');
+var db = require('./app/config');
 
 var handler = require('./lib/request-handler');
 
