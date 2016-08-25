@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var util = require('./lib/utility');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test'); // TODO: point this to the right url
 
 var handler = require('./lib/request-handler');
 
