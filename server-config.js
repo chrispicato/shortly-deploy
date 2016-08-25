@@ -4,12 +4,19 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var util = require('./lib/utility');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test'); // TODO: point this to the right url
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:27017');
+var db = require('./app/mongo');
 
 var handler = require('./lib/request-handler');
 
 var app = express();
+
+app.use(function(req, res, next) {
+  req.db = db;
+  console.log(db);
+  next();
+});
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
